@@ -3,7 +3,7 @@ bsdutils
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)
 
-[Ansible role.](https://galaxy.ansible.com/vbotka/ansible-bsdutils/) Install and configure bsd-utils from https://github.com/vbotka/bsd-utils.
+[Ansible role.](https://galaxy.ansible.com/vbotka/bsdutils/) Install and configure bsd-utils from https://github.com/vbotka/bsd-utils.
 
 
 Requirements.
@@ -34,7 +34,7 @@ None.
 lib-mapgen
 ----------
 
-Map library links and generate libmap.conf to fix potentially broken links.
+Map library links and generate libmap.conf to fix potentially broken links. Optionaly run it from the cron.
 
 ```
 lib-mapgen [-V|--version] [-h|--help] [-s|--silent] [-d|--debug]
