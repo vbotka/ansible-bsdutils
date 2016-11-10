@@ -1,0 +1,22 @@
+---
+
+- name: Create directory for installation {{bsdutils_bin_dir}}
+  file: >
+    state="directory"
+    path="{{bsdutils_bin_dir}}"
+    owner="{{bsdutils_owner}}"
+    group="{{bsdutils_group}}"
+    mode="{{bsdutils_bin_dir_mode}}"
+
+- name: Copy lib-mapgen to {{bsdutils_bin_dir}}
+  copy: >
+    src="{{bsdutils_source_dest}}/bsd-utils/lib-mapgen"
+    dest="{{bsdutils_bin_dir}}/lib-mapgen"
+    remote_src="yes"
+    owner="{{bsdutils_owner}}"
+    group="{{bsdutils_group}}"
+    mode="{{bsdutils_bin_mode}}"
+  when: libmapgen_enable == "yes"
+
+# EOF
+...

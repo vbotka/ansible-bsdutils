@@ -1,0 +1,14 @@
+galaxy_info:
+  author: Vladimir Botka
+  description: Install ans configure bsd-utils from github.com/vbotka/bsd-utils
+  company: https://botka.link
+  github_branch: master
+  license: BSD
+  min_ansible_version: 1.2
+  platforms:
+    - name: FreeBSD
+      versions:
+        - 10.3
+  galaxy_tags:
+    - FreeBSD
+dependencies: []

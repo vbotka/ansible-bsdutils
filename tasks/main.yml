@@ -1,0 +1,29 @@
+---
+
+- include: packages.yml
+  tags:
+    - bsdutils_packages
+    - bsdutils_all
+
+- include: source.yml
+  tags:
+    - bsdutils_source
+    - bsdutils_all
+
+- include: config.yml
+  tags:
+    - bsdutils_config
+    - bsdutils_all
+
+- include: copy.yml
+  tags:
+    - bsdutils_copy
+    - bsdutils_all
+
+- include: cron.yml
+  tags:
+    - bsdutils_cron
+    - bsdutils_all
+
+# EOF
+...
