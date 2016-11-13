@@ -12,6 +12,7 @@ bsdutils_source_file: "{{bsdutils_source_version}}.tar.gz"
 bsdutils_source_dir: "bsd-utils-{{bsdutils_source_version}}"
 bsdutils_source_dest: "/usr/local/src"
 bsdutils_source_url: "https://github.com/vbotka/bsd-utils/archive"
+bsdutils_source_ignore_current_lock: "yes"
 
 # directories, owner, group and permissions
 bsdutils_owner: "root"
