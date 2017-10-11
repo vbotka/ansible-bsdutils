@@ -32,20 +32,5 @@
         ( bsdutils_current_lock.stat.exists == False or
           bsdutils_source_ignore_current_lock == "yes" )
 
-- name: Which bash
-  command: "which bash"
-  register: bsdutils_which_bash
-  changed_when: false
-
-  #- debug: msg="{{bsdutils_which_bash.stdout}}"
-
-- name: Patch {{bsdutils_which_bash.stdout}}
-  lineinfile: >
-    dest="{{bsdutils_bin_dir}}/{{item}}"
-    regexp="#!"
-    line="#!{{bsdutils_which_bash.stdout}}"
-  with_items:
-    - lib-mapgen
-
 # EOF
 ...
