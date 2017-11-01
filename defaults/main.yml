@@ -1,5 +1,5 @@
 ---
-# defaults bsdutils
+# defaults for vbotka.bsdutils
 
 freebsd_install_method: "packages"
 #freebsd_install_method: "ports"
@@ -8,8 +8,8 @@ bsdutils_packages: []
 
 # source
 bsdutils_source_version: "0.1.1"
-bsdutils_source_file: "{{bsdutils_source_version}}.tar.gz"
-bsdutils_source_dir: "bsd-utils-{{bsdutils_source_version}}"
+bsdutils_source_file: "{{ bsdutils_source_version }}.tar.gz"
+bsdutils_source_dir: "bsd-utils-{{ bsdutils_source_version }}"
 bsdutils_source_dest: "/usr/local/src"
 bsdutils_source_url: "https://github.com/vbotka/bsd-utils/archive"
 bsdutils_source_ignore_current_lock: "yes"
@@ -43,7 +43,7 @@ bsdutils_config_LOGFILE: "/var/log/bsd-utils"
 
 # cron list broken links not fixed in libmap.conf
 libmapgen_cron_enable: "no"
-libmapgen_cron_command: "{{bsdutils_bin_dir}}/lib-mapgen -m"
+libmapgen_cron_command: "{{ bsdutils_bin_dir }}/lib-mapgen -m"
 libmapgen_cron_hour: "*/2"
 libmapgen_cron_minute: "15"
 

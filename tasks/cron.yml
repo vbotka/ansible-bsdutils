@@ -1,18 +1,18 @@
 ---
 
-- name: Configure cron MAILTO="{{bsdutils_cron_mailto}}"
+- name: Configure cron MAILTO="{{ bsdutils_cron_mailto }}"
   cronvar: >
     name="MAILTO"
-    value="\"{{bsdutils_cron_mailto}}\""
-    user="{{bsdutils_cron_user}}"
+    value="\"{{ bsdutils_cron_mailto }}\""
+    user="{{ bsdutils_cron_user }}"
 
 - name: Configure cron to list broken links not fixed in libmap.conf
   cron: >
     name="list broken links not fixed in libmap.conf"
-    minute="{{libmapgen_cron_minute}}"
-    hour="{{libmapgen_cron_hour}}"
-    job="{{libmapgen_cron_command}}"
-    user="{{bsdutils_cron_user}}"
+    minute="{{ libmapgen_cron_minute }}"
+    hour="{{ libmapgen_cron_hour }}"
+    job="{{ libmapgen_cron_command }}"
+    user="{{ bsdutils_cron_user }}"
   when: libmapgen_cron_enable == "yes"
   
 # EOF

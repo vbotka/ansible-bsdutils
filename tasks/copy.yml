@@ -1,31 +1,32 @@
 ---
 
-- name: Test presence of {{bsdutils_source_dest}}/bsd-utils-current.lock
-  stat: path="{{bsdutils_source_dest}}/bsd-utils-current.lock"
+- name: Test presence of {{ bsdutils_source_dest }}/bsd-utils-current.lock
+  stat: path="{{ bsdutils_source_dest }}/bsd-utils-current.lock"
   register: bsdutils_current_lock
 
 - debug: msg="[LOCK] bsd-utils-current.lock file is present. Scripts will no be copied."
-  when: bsdutils_current_lock.stat.exists == True and
-        bsdutils_source_ignore_current_lock == "no"
+  when:
+    - bsdutils_current_lock.stat.exists == True
+    - bsdutils_source_ignore_current_lock == "no"
 
-- name: Create directory for installation {{bsdutils_bin_dir}}
+- name: Create directory for installation {{ bsdutils_bin_dir }}
   file: >
     state="directory"
-    path="{{bsdutils_bin_dir}}"
-    owner="{{bsdutils_owner}}"
-    group="{{bsdutils_group}}"
-    mode="{{bsdutils_bin_dir_mode}}"
+    path="{{ bsdutils_bin_dir }}"
+    owner="{{ bsdutils_owner }}"
+    group="{{ bsdutils_group }}"
+    mode="{{ bsdutils_bin_dir_mode }}"
   when: bsdutils_current_lock.stat.exists == False or
         bsdutils_source_ignore_current_lock == "yes"
 
-- name: Copy lib-mapgen to {{bsdutils_bin_dir}}
+- name: Copy lib-mapgen to {{ bsdutils_bin_dir }}
   copy: >
-    src="{{bsdutils_source_dest}}/bsd-utils/{{item}}"
-    dest="{{bsdutils_bin_dir}}/{{item}}"
+    src="{{ bsdutils_source_dest }}/bsd-utils/{{ item }}"
+    dest="{{ bsdutils_bin_dir }}/{{ item }}"
     remote_src="yes"
-    owner="{{bsdutils_owner}}"
-    group="{{bsdutils_group}}"
-    mode="{{bsdutils_bin_mode}}"
+    owner="{{ bsdutils_owner }}"
+    group="{{ bsdutils_group }}"
+    mode="{{ bsdutils_bin_mode }}"
   with_items:
     - lib-mapgen
   when: ( libmapgen_enable == "yes" ) and

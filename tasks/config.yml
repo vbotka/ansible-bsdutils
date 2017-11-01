@@ -1,17 +1,17 @@
 ---
 
-- name: Create configuration {{bsdutils_config_file}}
+- name: Create configuration {{ bsdutils_config_file }}
   lineinfile: >
-    dest="{{bsdutils_config_file}}"
-    regexp="{{item.regexp}}"
-    line="{{item.line}}"
-    owner="{{bsdutils_owner}}"
-    group="{{bsdutils_group}}"
-    mode="{{bsdutils_config_mode}}"
+    dest="{{ bsdutils_config_file }}"
+    regexp="{{ item.regexp }}"
+    line="{{ item.line }}"
+    owner="{{ bsdutils_owner }}"
+    group="{{ bsdutils_group }}"
+    mode="{{ bsdutils_config_mode }}"
     backup="yes"
     create="yes"
   with_items:
-    - { regexp: "^LIBMAP=", line: "LIBMAP=\"{{bsdutils_config_LIBMAP}}\""}
+    - { regexp: "^LIBMAP=", line: "LIBMAP=\"{{ bsdutils_config_LIBMAP }}\""}
   tags: config_lectl
 
 # EOF
