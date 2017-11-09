@@ -16,7 +16,8 @@
     dest="{{ bsdutils_source_dest }}"
     remote_src="yes"
     extra_opts="--skip-old-files"
-# changed_when: False
+  changed_when: False
+  when: not ansible_check_mode
 # TODO: Wait for fixed idempotent unarchive module
 
 - name: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}
