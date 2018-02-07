@@ -1,9 +1,9 @@
 ---
 
-- name: Configure cron MAILTO="{{ bsdutils_cron_mailto }}"
+- name: Configure cron MAILTO={{ bsdutils_cron_mailto }}
   cronvar: >
     name="MAILTO"
-    value="\"{{ bsdutils_cron_mailto }}\""
+    value="{{ bsdutils_cron_mailto }}"
     user="{{ bsdutils_cron_user }}"
 
 - name: Configure cron to list broken links not fixed in libmap.conf
