@@ -1,46 +1,45 @@
 ---
 
-- name: Create directory for the source code {{ bsdutils_source_dest }}
-  file: >
-    state="directory"
-    path="{{ bsdutils_source_dest }}"
+- name: "source: Create directory for the source code {{ bsdutils_source_dest }}"
+  file:
+    state: "directory"
+    path: "{{ bsdutils_source_dest }}"
 
-- name: Download sources from {{ bsdutils_source_url }}/{{ bsdutils_source_file }}
-  get_url: >
-    url="{{ bsdutils_source_url }}/{{ bsdutils_source_file }}"
-    dest="{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_file }}"
+- name: "source: Download sources from {{ bsdutils_source_url }}/{{ bsdutils_source_file }}"
+  get_url:
+    url: "{{ bsdutils_source_url }}/{{ bsdutils_source_file }}"
+    dest: "{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_file }}"
 
-- name: Extract sources to {{ bsdutils_source_dest }}
-  unarchive: >
-    src="{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_file }}"
-    dest="{{ bsdutils_source_dest }}"
-    remote_src="yes"
-    extra_opts="--skip-old-files"
+- name: "source: Extract sources to {{ bsdutils_source_dest }}"
+  unarchive:
+    src: "{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_file }}"
+    dest: "{{ bsdutils_source_dest }}"
+    remote_src: yes
+    extra_opts: "--skip-old-files"
   changed_when: False
   when: not ansible_check_mode
 # TODO: Wait for fixed idempotent unarchive module
 
-- name: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}
-  file: >
-    src="{{ bsdutils_source_dest }}/{{ bsdutils_source_dir }}"
-    dest="{{ bsdutils_source_dest }}/bsd-utils"
-    state="link"
-    force="yes"
+- name: "source: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}"
+  file:
+    src: "{{ bsdutils_source_dest }}/{{ bsdutils_source_dir }}"
+    dest: "{{ bsdutils_source_dest }}/bsd-utils"
+    state: "link"
+    force: yes
 
-- name: Which bash
+- name: "source: Which bash"
   command: "which bash"
   register: bsdutils_which_bash
-  changed_when: false
+  changed_when: False
 
 #- debug: msg="{{ bsdutils_which_bash.stdout }}"
 
-- name: Patch {{ bsdutils_which_bash.stdout }}
-  lineinfile: >
-    dest="{{ bsdutils_source_dest }}/bsd-utils/{{ item }}"
-    regexp="#!"
-    line="#!{{ bsdutils_which_bash.stdout }}"
-  with_items:
-    - lib-mapgen
+- name: "source: Patch {{ bsdutils_which_bash.stdout }}"
+  lineinfile:
+    dest: "{{ bsdutils_source_dest }}/bsd-utils/{{ item }}"
+    regexp: "#!"
+    line: "#!{{ bsdutils_which_bash.stdout }}"
+  with_items: "{{ bsdutils_copy }}"
   when: not ansible_check_mode
 
 # EOF

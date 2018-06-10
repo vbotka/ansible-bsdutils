@@ -1,31 +1,19 @@
 ---
 
 - include: packages.yml
-  tags:
-    - bsd_packages
-    - bsd_ports
-    - bsdutils_packages
-    - bsdutils_all
+  tags: [ bsd_packages, bsd_ports, bsdutils_packages ]
 
 - include: source.yml
-  tags:
-    - bsdutils_source
-    - bsdutils_all
+  tags: bsdutils_source
 
 - include: config.yml
-  tags:
-    - bsdutils_config
-    - bsdutils_all
+  tags: bsdutils_config
 
 - include: copy.yml
-  tags:
-    - bsdutils_copy
-    - bsdutils_all
+  tags: bsdutils_copy
 
 - include: cron.yml
-  tags:
-    - bsdutils_cron
-    - bsdutils_all
+  tags: bsdutils_cron
 
 # EOF
 ...
