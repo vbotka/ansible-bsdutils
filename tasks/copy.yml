@@ -5,14 +5,15 @@
     path: "{{ bsdutils_source_dest }}/bsd-utils-current.lock"
   register: bsdutils_current_lock
 
-- debug: msg="[LOCK] bsd-utils-current.lock file is present. Scripts will no be copied."
+- debug:
+    msg: "[LOCK] bsd-utils-current.lock file is present. Scripts will no be copied."
   when:
     - bsdutils_current_lock.stat.exists
     - not bsdutils_source_ignore_current_lock
 
 - name: "copy: Create directory for installation {{ bsdutils_bin_dir }}"
   file:
-    state: "directory"
+    state: directory
     path: "{{ bsdutils_bin_dir }}"
     owner: "{{ bsdutils_owner }}"
     group: "{{ bsdutils_group }}"
@@ -24,11 +25,11 @@
   copy:
     src: "{{ bsdutils_source_dest }}/bsd-utils/{{ item }}"
     dest: "{{ bsdutils_bin_dir }}/{{ item }}"
-    remote_src: yes
     owner: "{{ bsdutils_owner }}"
     group: "{{ bsdutils_group }}"
     mode: "{{ bsdutils_bin_mode }}"
-  with_items: "{{ bsdutils_copy }}"
+    remote_src: yes
+  loop: "{{ bsdutils_copy }}"
   when:
     - (not bsdutils_current_lock.stat.exists) or
       bsdutils_source_ignore_current_lock

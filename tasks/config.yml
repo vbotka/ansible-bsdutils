@@ -10,7 +10,7 @@
     mode: "{{ bsdutils_config_mode }}"
     backup: yes
     create: yes
-  with_items: "{{ bsdutils_config }}"
+  loop: "{{ bsdutils_config }}"
 
 # EOF
 ...
