@@ -30,7 +30,7 @@
   register: bsdutils_which_bash
   changed_when: False
 
-#- debug: msg="{{ bsdutils_which_bash.stdout }}"
+# - debug: msg="{{ bsdutils_which_bash.stdout }}"
 
 - name: "source: Patch {{ bsdutils_which_bash.stdout }}"
   lineinfile:

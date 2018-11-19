@@ -2,8 +2,8 @@
 # defaults for vbotka.bsdutils
 
 freebsd_install_method: "packages"
-#freebsd_install_method: "ports"
-#freebsd_use_packages: "yes"
+# freebsd_install_method: "ports"
+# freebsd_use_packages: "yes"
 bsdutils_packages: []
 bsdutils_source_ignore_current_lock: True
 

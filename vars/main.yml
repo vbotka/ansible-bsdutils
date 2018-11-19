@@ -1,8 +1,8 @@
 ---
 # vars for vbotka.bsdutils
 
-#bsdutils_copy:
+# bsdutils_copy:
 #  - lib-mapgen
 
-#bsdutils_config:
+# bsdutils_config:
 #  - { regexp: "^LIBMAP=", line: "LIBMAP=\"{{ bsdutils_config_LIBMAP }}\""}
