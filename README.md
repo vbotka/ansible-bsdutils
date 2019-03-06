@@ -2,6 +2,7 @@ bsdutils
 =======
 
 [![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)
+[![GitHub tag](https://img.shields.io/github/tag/vbotka/ansible-bsdutils.svg)](https://github.com/vbotka/ansible-bsdutils/tags)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/bsdutils/) Install and configure bsd-utils from https://github.com/vbotka/bsd-utils.
 
