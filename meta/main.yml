@@ -1,5 +1,6 @@
 ---
 galaxy_info:
+  role_name: bsdutils
   author: Vladimir Botka
   description: Install and configure github.com/vbotka/bsd-utils
   company: https://botka.link
