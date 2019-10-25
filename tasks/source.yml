@@ -21,7 +21,7 @@
     src: "{{ bsdutils_dest_file }}"
     dest: "{{ bsdutils_source_dest }}"
     extra_opts: "{{ bsdutils_unarchive_extra_opts }}"
-    remote_src: yes
+    remote_src: true
   when: result.stat.exists
 
 - name: "source: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}"
@@ -29,12 +29,12 @@
     state: link
     src: "{{ bsdutils_source_dest }}/{{ bsdutils_source_dir }}"
     dest: "{{ bsdutils_source_dest }}/bsd-utils"
-    force: yes
+    force: true
 
 - name: "source: Which bash"
   command: "which bash"
   register: bsdutils_which_bash
-  changed_when: False
+  changed_when: false
 
 # - debug: msg="{{ bsdutils_which_bash.stdout }}"
 

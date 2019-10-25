@@ -1,6 +1,7 @@
 ---
 
 - import_tasks: packages.yml
+  when: bsdutils_install|bool
   tags: bsdutils_packages
 
 - import_tasks: source.yml

@@ -7,8 +7,10 @@ freebsd_install_method: "packages"
 freebsd_install_retries: 10
 freebsd_install_delay: 5
 
+bsdutils_install: true
 bsdutils_packages: []
-bsdutils_source_ignore_current_lock: True
+
+bsdutils_source_ignore_current_lock: true
 
 # source
 bsdutils_source_url: "https://github.com/vbotka/bsd-utils/archive"
@@ -49,7 +51,7 @@ bsdutils_config_LOGTOFILE: "0"
 bsdutils_config_LOGFILE: "/var/log/bsd-utils"
 
 # cron list broken links not fixed in libmap.conf
-libmapgen_cron_enable: False
+libmapgen_cron_enable: false
 libmapgen_cron_command: "{{ bsdutils_bin_dir }}/lib-mapgen -m"
 libmapgen_cron_hour: "*/2"
 libmapgen_cron_minute: "15"

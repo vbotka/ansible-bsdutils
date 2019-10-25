@@ -28,7 +28,7 @@
     owner: "{{ bsdutils_owner }}"
     group: "{{ bsdutils_group }}"
     mode: "{{ bsdutils_bin_mode }}"
-    remote_src: yes
+    remote_src: true
   loop: "{{ bsdutils_copy }}"
   when:
     - (not bsdutils_current_lock.stat.exists) or

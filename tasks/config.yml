@@ -8,8 +8,8 @@
     owner: "{{ bsdutils_owner }}"
     group: "{{ bsdutils_group }}"
     mode: "{{ bsdutils_config_mode }}"
-    backup: yes
-    create: yes
+    backup: true
+    create: true
   loop: "{{ bsdutils_config }}"
 
 # EOF
