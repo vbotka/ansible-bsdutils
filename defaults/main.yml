@@ -1,16 +1,15 @@
 ---
 # defaults for vbotka.bsdutils
 
+bsdutils_install: true
+bsdutils_packages: []
+bsdutils_source_ignore_current_lock: true
+
 freebsd_install_method: "packages"
 # freebsd_install_method: "ports"
 # freebsd_use_packages: "yes"
 freebsd_install_retries: 10
 freebsd_install_delay: 5
-
-bsdutils_install: true
-bsdutils_packages: []
-
-bsdutils_source_ignore_current_lock: true
 
 # source
 bsdutils_source_url: "https://github.com/vbotka/bsd-utils/archive"
