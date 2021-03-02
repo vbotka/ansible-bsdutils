@@ -1,6 +1,6 @@
 # bsdutils
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/config_light)[![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)[![GitHub tag](https://img.shields.io/github/tag/vbotka/ansible-bsdutils.svg)](https://github.com/vbotka/ansible-bsdutils/tags)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/bsdutils)[![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)[![GitHub tag](https://img.shields.io/github/tag/vbotka/ansible-bsdutils.svg)](https://github.com/vbotka/ansible-bsdutils/tags)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/bsdutils/) Install and configure [bsd-utils](https://github.com/vbotka/bsd-utils).
 
