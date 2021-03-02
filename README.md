@@ -1,20 +1,20 @@
-bsdutils
-=======
+# bsdutils
 
-[![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)
-[![GitHub tag](https://img.shields.io/github/tag/vbotka/ansible-bsdutils.svg)](https://github.com/vbotka/ansible-bsdutils/tags)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/config_light)[![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)[![GitHub tag](https://img.shields.io/github/tag/vbotka/ansible-bsdutils.svg)](https://github.com/vbotka/ansible-bsdutils/tags)
 
-[Ansible role.](https://galaxy.ansible.com/vbotka/bsdutils/) Install and configure bsd-utils from https://github.com/vbotka/bsd-utils.
+[Ansible role.](https://galaxy.ansible.com/vbotka/bsdutils/) Install and configure [bsd-utils](https://github.com/vbotka/bsd-utils).
+
+Feel free to [share your feedback and report issues](https://github.com/vbotka/bsdutils/issues).
+
+[Contributions are welcome](https://github.com/firstcontributions/first-contributions).
 
 
-Requirements.
-------------
+## Requirements
 
 None.
 
 
-Role Variables.
---------------
+## Role Variables
 
 lib-mapgen is not enabled by default.
 
@@ -26,14 +26,12 @@ libmapgen_cron_enable: "no"
 TBD (Check defaults).
 
 
-Dependencies.
-------------
+## Dependencies
 
 None.
 
 
-lib-mapgen
-----------
+## lib-mapgen
 
 Map library links and generate libmap.conf to fix potentially broken links. Optionaly run it from the cron.
 
@@ -66,13 +64,11 @@ Append broken links to $LIBMAP
 ```
 
 
-License.
--------
+## License
 
 [![license](https://img.shields.io/badge/license-BSD-red.svg)](https://www.freebsd.org/doc/en/articles/bsdl-gpl/article.html)
 
 
-Author Information.
-------------------
+## Author Information
 
 [Vladimir Botka](https://botka.link)
