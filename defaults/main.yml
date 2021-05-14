@@ -5,8 +5,8 @@ bsdutils_install: true
 bsdutils_packages: []
 bsdutils_source_ignore_current_lock: true
 
-freebsd_install_method: "packages"
-# freebsd_install_method: "ports"
+freebsd_install_method: packages
+# freebsd_install_method: ports
 # freebsd_use_packages: "yes"
 freebsd_install_retries: 10
 freebsd_install_delay: 5
@@ -17,37 +17,37 @@ bsdutils_source_version: "1.0.0"
 bsdutils_source_checksum: "sha1:ebd80830b71376616eacb46a5362e94460db9414"
 bsdutils_source_file: "{{ bsdutils_source_version }}.tar.gz"
 bsdutils_source_dir: "bsd-utils-{{ bsdutils_source_version }}"
-bsdutils_source_dest: "/usr/local/src"
+bsdutils_source_dest: /usr/local/src
 bsdutils_dest_file: "{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_file }}"
 bsdutils_unarchive_extra_opts: "--skip-old-files"
 
 # directories, owner, group and permissions
-bsdutils_owner: "root"
-bsdutils_group: "wheel"
-bsdutils_bin_dir: "/root/bin"
+bsdutils_owner: root
+bsdutils_group: wheel
+bsdutils_bin_dir: /root/bin
 bsdutils_bin_dir_mode: "0755"
 bsdutils_bin_mode: "0755"
 bsdutils_config_mode: "0644"
 bsdutils_copy: []
 
 # configure bsd-utils
-bsdutils_config_file: "/etc/bsd-utils"
-bsdutils_config_file_owner: "root"
-bsdutils_config_file_group: "wheel"
+bsdutils_config_file: /etc/bsd-utils
+bsdutils_config_file_owner: root
+bsdutils_config_file_group: wheel
 bsdutils_config_file_mode: "0644"
 bsdutils_config: []
 
 # configure cron
-bsdutils_cron_user: "root"
-bsdutils_cron_mailto: "root"
+bsdutils_cron_user: root
+bsdutils_cron_mailto: root
 
 # lib-mapgen
-bsdutils_config_LIBMAP: "/etc/libmap.conf"
-bsdutils_config_LIBDIR: "/usr/local/lib"
-bsdutils_config_ANSIBLEORIGIN: "origin"
-bsdutils_config_ANSIBLETARGET: "target"
+bsdutils_config_LIBMAP: /etc/libmap.conf
+bsdutils_config_LIBDIR: /usr/local/lib
+bsdutils_config_ANSIBLEORIGIN: origin
+bsdutils_config_ANSIBLETARGET: target
 bsdutils_config_LOGTOFILE: "0"
-bsdutils_config_LOGFILE: "/var/log/bsd-utils"
+bsdutils_config_LOGFILE: /var/log/bsd-utils
 
 # cron list broken links not fixed in libmap.conf
 libmapgen_cron_enable: false
