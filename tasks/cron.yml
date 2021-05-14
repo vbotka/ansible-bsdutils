@@ -1,19 +1,19 @@
 ---
 
 - name: "cron: Configure cron MAILTO={{ bsdutils_cron_mailto }}"
-  cronvar:
-    name: "MAILTO"
+  community.general.cronvar:
+    name: MAILTO
     value: "{{ bsdutils_cron_mailto }}"
     user: "{{ bsdutils_cron_user }}"
 
 - name: "cron: Configure cron to list broken links not fixed in libmap.conf"
-  cron:
+  ansible.builtin.cron:
     name: "list broken links not fixed in libmap.conf"
     minute: "{{ libmapgen_cron_minute }}"
     hour: "{{ libmapgen_cron_hour }}"
     job: "{{ libmapgen_cron_command }}"
     user: "{{ bsdutils_cron_user }}"
-  when: libmapgen_cron_enable
+  when: libmapgen_cron_enable|bool
 
 # EOF
 ...

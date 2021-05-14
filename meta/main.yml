@@ -15,4 +15,6 @@ galaxy_info:
   galaxy_tags:
     - freebsd
 dependencies: []
+collections:
+  - community.general
 ...
