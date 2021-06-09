@@ -42,12 +42,12 @@ bsdutils_cron_user: root
 bsdutils_cron_mailto: root
 
 # lib-mapgen
-bsdutils_config_LIBMAP: /etc/libmap.conf
-bsdutils_config_LIBDIR: /usr/local/lib
-bsdutils_config_ANSIBLEORIGIN: origin
-bsdutils_config_ANSIBLETARGET: target
-bsdutils_config_LOGTOFILE: "0"
-bsdutils_config_LOGFILE: /var/log/bsd-utils
+bsdutils_config_libmap: /etc/libmap.conf
+bsdutils_config_libdir: /usr/local/lib
+bsdutils_config_ansibleorigin: origin
+bsdutils_config_ansibletarget: target
+bsdutils_config_logtofile: "0"
+bsdutils_config_logfile: /var/log/bsd-utils
 
 # cron list broken links not fixed in libmap.conf
 libmapgen_cron_enable: false
