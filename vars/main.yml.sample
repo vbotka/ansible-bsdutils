@@ -5,4 +5,4 @@
 #  - lib-mapgen
 
 # bsdutils_config:
-#  - { regexp: "^LIBMAP=", line: "LIBMAP=\"{{ bsdutils_config_LIBMAP }}\""}
+#  - { regexp: "^LIBMAP=", line: "LIBMAP=\"{{ bsdutils_config_libmap }}\""}

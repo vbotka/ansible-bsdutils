@@ -9,7 +9,7 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/b
 [Contributions are welcome](https://github.com/firstcontributions/first-contributions).
 
 
-## Requirements
+## Requirements and dependencies
 
 ### Collections
 
@@ -25,12 +25,7 @@ libmapgen_enable: "no"
 libmapgen_cron_enable: "no"
 ```
 
-TBD (Check defaults).
-
-
-## Dependencies
-
-None.
+See defaults and vars/main.yml.sample
 
 
 ## lib-mapgen

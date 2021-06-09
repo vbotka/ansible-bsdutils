@@ -1,19 +1,24 @@
 ---
 
-- import_tasks: packages.yml
+- name: Import packages.yml
+  ansible.builtin.import_tasks: packages.yml
   when: bsdutils_install|bool
   tags: bsdutils_packages
 
-- import_tasks: source.yml
+- name: Import source.yml
+  ansible.builtin.import_tasks: source.yml
   tags: bsdutils_source
 
-- import_tasks: config.yml
+- name: Import config.yml
+  ansible.builtin.import_tasks: config.yml
   tags: bsdutils_config
 
-- import_tasks: copy.yml
+- name: Import copy.yml
+  ansible.builtin.import_tasks: copy.yml
   tags: bsdutils_copy
 
-- import_tasks: cron.yml
+- name: Import cron.yml
+  ansible.builtin.import_tasks: cron.yml
   tags: bsdutils_cron
 
 # EOF
