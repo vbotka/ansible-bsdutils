@@ -21,6 +21,7 @@
   ansible.builtin.unarchive:
     src: "{{ bsdutils_dest_file }}"
     dest: "{{ bsdutils_source_dest }}"
+    creates: "{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_version }}"
     extra_opts: "{{ bsdutils_unarchive_extra_opts }}"
     remote_src: true
   when: result.stat.exists
