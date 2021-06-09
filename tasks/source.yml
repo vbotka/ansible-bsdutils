@@ -33,7 +33,7 @@
     force: true
 
 - name: "source: Which bash"
-  command:
+  ansible.builtin.command:
     cmd: which bash
   register: bsdutils_which_bash
   changed_when: false
