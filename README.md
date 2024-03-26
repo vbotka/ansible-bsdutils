@@ -18,11 +18,10 @@ Feel free to [share your feedback and report issues](https://github.com/vbotka/b
 
 ## Role Variables
 
-lib-mapgen is not enabled by default.
+lib-mapgen is not enabled by default
 
-```
-libmapgen_enable: "no"
-libmapgen_cron_enable: "no"
+```yaml
+libmapgen_cron_enable: false
 ```
 
 See defaults and vars/main.yml.sample
@@ -32,7 +31,7 @@ See defaults and vars/main.yml.sample
 
 Map library links and generate libmap.conf to fix potentially broken links. Optionaly run it from the cron.
 
-```
+```bash
 lib-mapgen [-V|--version] [-h|--help] [-s|--silent] [-d|--debug]
            [-l|--list] [-a|--ansible] [-m| --libmap] [-ma|--libmap-append]
 	              -- Map library links and generate libmap.conf
@@ -68,4 +67,4 @@ Append broken links to $LIBMAP
 
 ## Author Information
 
-[Vladimir Botka](https://botka.link)
+[Vladimir Botka](https://botka.info)
