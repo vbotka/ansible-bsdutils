@@ -1,8 +1,7 @@
 ---
-
 - name: Import packages.yml
   ansible.builtin.import_tasks: packages.yml
-  when: bsdutils_install|bool
+  when: bsdutils_install | bool
   tags: bsdutils_packages
 
 - name: Import source.yml
@@ -22,4 +21,3 @@
   tags: bsdutils_cron
 
 # EOF
-...

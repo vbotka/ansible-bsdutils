@@ -1,23 +1,23 @@
 ---
-
-- name: "source: Create directory for the source code {{ bsdutils_source_dest }}"
+- name: "Source: Create directory for the source code {{ bsdutils_source_dest }}"
   ansible.builtin.file:
     state: directory
     mode: "0755"
     path: "{{ bsdutils_source_dest }}"
 
-- name: "source: Download sources from {{ bsdutils_source_url }}/{{ bsdutils_source_file }}"
+- name: "Source: Download sources from {{ bsdutils_source_url ~ '/' ~ bsdutils_source_file }}"
   ansible.builtin.get_url:
     url: "{{ bsdutils_source_url }}/{{ bsdutils_source_file }}"
     dest: "{{ bsdutils_dest_file }}"
+    mode: "0644"
     checksum: "{{ bsdutils_source_checksum }}"
 
-- name: "source: Stat {{ bsdutils_dest_file }}"
+- name: "Source: Stat {{ bsdutils_dest_file }}"
   ansible.builtin.stat:
     path: "{{ bsdutils_dest_file }}"
   register: result
 
-- name: "source: Extract {{ bsdutils_dest_file }}"
+- name: "Source: Extract {{ bsdutils_dest_file }}"
   ansible.builtin.unarchive:
     src: "{{ bsdutils_dest_file }}"
     dest: "{{ bsdutils_source_dest }}"
@@ -26,14 +26,14 @@
     remote_src: true
   when: result.stat.exists
 
-- name: "source: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}"
+- name: "Source: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}"
   ansible.builtin.file:
     state: link
     src: "{{ bsdutils_source_dest }}/{{ bsdutils_source_dir }}"
     dest: "{{ bsdutils_source_dest }}/bsd-utils"
     force: true
 
-- name: "source: Which bash"
+- name: "Source: Which bash"
   ansible.builtin.command:
     cmd: which bash
   register: bsdutils_which_bash
@@ -41,7 +41,7 @@
 
 # - debug: msg="{{ bsdutils_which_bash.stdout }}"
 
-- name: "source: Patch {{ bsdutils_which_bash.stdout }}"
+- name: "Source: Patch {{ bsdutils_which_bash.stdout }}"
   ansible.builtin.lineinfile:
     dest: "{{ bsdutils_source_dest }}/bsd-utils/{{ item }}"
     regexp: "#!"
@@ -50,4 +50,3 @@
   when: not ansible_check_mode
 
 # EOF
-...

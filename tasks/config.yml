@@ -1,6 +1,5 @@
 ---
-
-- name: "config: Create configuration {{ bsdutils_config_file }}"
+- name: "Config: Create configuration {{ bsdutils_config_file }}"
   ansible.builtin.lineinfile:
     dest: "{{ bsdutils_config_file }}"
     regexp: "{{ item.regexp }}"
@@ -13,4 +12,3 @@
   loop: "{{ bsdutils_config }}"
 
 # EOF
-...

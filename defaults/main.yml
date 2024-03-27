@@ -12,14 +12,14 @@ freebsd_install_retries: 10
 freebsd_install_delay: 5
 
 # source
-bsdutils_source_url: "https://github.com/vbotka/bsd-utils/archive"
-bsdutils_source_version: "1.0.0"
-bsdutils_source_checksum: "sha1:ebd80830b71376616eacb46a5362e94460db9414"
+bsdutils_source_url: https://github.com/vbotka/bsd-utils/archive
+bsdutils_source_version: 1.0.0
+bsdutils_source_checksum: sha1:ebd80830b71376616eacb46a5362e94460db9414
 bsdutils_source_file: "{{ bsdutils_source_version }}.tar.gz"
-bsdutils_source_dir: "bsd-utils-{{ bsdutils_source_version }}"
+bsdutils_source_dir: bsd-utils-{{ bsdutils_source_version }}
 bsdutils_source_dest: /usr/local/src
 bsdutils_dest_file: "{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_file }}"
-bsdutils_unarchive_extra_opts: "--skip-old-files"
+bsdutils_unarchive_extra_opts: --skip-old-files
 
 # directories, owner, group and permissions
 bsdutils_owner: root
@@ -29,14 +29,12 @@ bsdutils_bin_dir_mode: "0755"
 bsdutils_bin_mode: "0755"
 bsdutils_config_mode: "0644"
 bsdutils_copy: []
-
 # configure bsd-utils
 bsdutils_config_file: /etc/bsd-utils
 bsdutils_config_file_owner: root
 bsdutils_config_file_group: wheel
 bsdutils_config_file_mode: "0644"
 bsdutils_config: []
-
 # configure cron
 bsdutils_cron_user: root
 bsdutils_cron_mailto: root
@@ -56,4 +54,3 @@ libmapgen_cron_hour: "*/2"
 libmapgen_cron_minute: "15"
 
 # EOF
-...
