@@ -5,6 +5,20 @@ vbotka.bsdutils 2.6 Release Notes
 .. contents:: Topics
 
 
+2.6.1
+=====
+
+Release Summary
+---------------
+Bug fix.
+
+Major Changes
+-------------
+
+Minor Changes
+-------------
+
+
 2.6.0
 =====
 
