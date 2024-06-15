@@ -18,7 +18,7 @@ Major Changes
 
 Minor Changes
 -------------
-* Fix README tag badge.
+* README fix tag badge; formatting
 * Use default rules in local ansible-lint config.
 * Update skip_list in local ansible-lint config.
 
