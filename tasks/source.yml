@@ -6,6 +6,8 @@
     path: "{{ bsdutils_source_dest }}"
 
 - name: "Source: Download sources from {{ bsdutils_source_url ~ '/' ~ bsdutils_source_file }}"
+  environment:
+    CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'
   ansible.builtin.get_url:
     url: "{{ bsdutils_source_url }}/{{ bsdutils_source_file }}"
     dest: "{{ bsdutils_dest_file }}"
@@ -13,18 +15,20 @@
     checksum: "{{ bsdutils_source_checksum }}"
 
 - name: "Source: Stat {{ bsdutils_dest_file }}"
+  register: result
   ansible.builtin.stat:
     path: "{{ bsdutils_dest_file }}"
-  register: result
 
 - name: "Source: Extract {{ bsdutils_dest_file }}"
+  when: result.stat.exists
+  environment:
+    CRYPTOGRAPHY_OPENSSL_NO_LEGACY: '1'
   ansible.builtin.unarchive:
     src: "{{ bsdutils_dest_file }}"
     dest: "{{ bsdutils_source_dest }}"
     creates: "{{ bsdutils_source_dest }}/bsd-utils-{{ bsdutils_source_version }}"
     extra_opts: "{{ bsdutils_unarchive_extra_opts }}"
     remote_src: true
-  when: result.stat.exists
 
 - name: "Source: Create symbolic link bsd-utils to {{ bsdutils_source_dir }}"
   ansible.builtin.file:
@@ -34,10 +38,10 @@
     force: true
 
 - name: "Source: Which bash"
-  ansible.builtin.command:
-    cmd: which bash
   register: bsdutils_which_bash
   changed_when: false
+  ansible.builtin.command:
+    cmd: which bash
 
 # - debug: msg="{{ bsdutils_which_bash.stdout }}"
 
@@ -47,6 +51,5 @@
     regexp: "#!"
     line: "#!{{ bsdutils_which_bash.stdout }}"
   with_items: "{{ bsdutils_copy }}"
-  when: not ansible_check_mode
 
 # EOF

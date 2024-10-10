@@ -6,12 +6,12 @@
     user: "{{ bsdutils_cron_user }}"
 
 - name: "Cron: Configure cron to list broken links not fixed in libmap.conf"
+  when: libmapgen_cron_enable | bool
   ansible.builtin.cron:
     name: list broken links not fixed in libmap.conf
     minute: "{{ libmapgen_cron_minute }}"
     hour: "{{ libmapgen_cron_hour }}"
     job: "{{ libmapgen_cron_command }}"
     user: "{{ bsdutils_cron_user }}"
-  when: libmapgen_cron_enable | bool
 
 # EOF

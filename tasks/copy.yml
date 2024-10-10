@@ -1,26 +1,27 @@
 ---
 - name: "Copy: Test presence of bsd-utils-current.lock in {{ bsdutils_source_dest }}"
+  register: bsdutils_current_lock
   ansible.builtin.stat:
     path: "{{ bsdutils_source_dest }}/bsd-utils-current.lock"
-  register: bsdutils_current_lock
 
 - name: "Copy: Debug bsd-utils-current.lock"
-  ansible.builtin.debug:
-    msg: "[LOCK] bsd-utils-current.lock file is present. Scripts will no be copied."
   when:
     - bsdutils_current_lock.stat.exists
     - not bsdutils_source_ignore_current_lock
+  ansible.builtin.debug:
+    msg: "[LOCK] bsd-utils-current.lock file is present. Scripts will no be copied."
 
 - name: "Copy: Create directory for installation {{ bsdutils_bin_dir }}"
+  when: (not bsdutils_current_lock.stat.exists) or bsdutils_source_ignore_current_lock
   ansible.builtin.file:
     state: directory
     path: "{{ bsdutils_bin_dir }}"
     owner: "{{ bsdutils_owner }}"
     group: "{{ bsdutils_group }}"
     mode: "{{ bsdutils_bin_dir_mode }}"
-  when: (not bsdutils_current_lock.stat.exists) or bsdutils_source_ignore_current_lock
 
 - name: "Copy: Copy utils to {{ bsdutils_bin_dir }}"
+  when: (not bsdutils_current_lock.stat.exists) or bsdutils_source_ignore_current_lock
   ansible.builtin.copy:
     src: "{{ bsdutils_source_dest }}/bsd-utils/{{ item }}"
     dest: "{{ bsdutils_bin_dir }}/{{ item }}"
@@ -29,8 +30,5 @@
     mode: "{{ bsdutils_bin_mode }}"
     remote_src: true
   loop: "{{ bsdutils_copy }}"
-  when:
-    - (not bsdutils_current_lock.stat.exists) or bsdutils_source_ignore_current_lock
-    - not ansible_check_mode
 
 # EOF
