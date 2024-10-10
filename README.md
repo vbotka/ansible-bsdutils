@@ -1,6 +1,8 @@
 # bsdutils
 
-[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/bsdutils)[![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)[![GitHub tag](https://img.shields.io/github/tag/vbotka/ansible-bsdutils.svg)](https://github.com/vbotka/ansible-bsdutils/tags)
+[![quality](https://img.shields.io/ansible/quality/27910)](https://galaxy.ansible.com/vbotka/bsdutils)
+[![Build Status](https://travis-ci.org/vbotka/ansible-bsdutils.svg?branch=master)](https://travis-ci.org/vbotka/ansible-bsdutils)
+[![GitHub tag](https://img.shields.io/github/v/tag/vbotka/ansible-bsdutils)](https://github.com/vbotka/ansible-bsdutils/tags)
 
 [Ansible role.](https://galaxy.ansible.com/vbotka/bsdutils/) Install and configure [bsd-utils](https://github.com/vbotka/bsd-utils).
 
@@ -29,7 +31,7 @@ See defaults and vars/main.yml.sample
 
 ## lib-mapgen
 
-Map library links and generate libmap.conf to fix potentially broken links. Optionaly run it from the cron.
+Map library links and generate libmap.conf to fix potentially broken links. Optionally run it from the cron.
 
 ```bash
 lib-mapgen [-V|--version] [-h|--help] [-s|--silent] [-d|--debug]
@@ -57,6 +59,17 @@ List broken links in $LIBDIR not fixed in $LIBMAP in yaml array format
 # lib-mapgen  -a -m
 Append broken links to $LIBMAP
 # lib-mapgen  -ma
+```
+
+
+### Ansible lint
+
+Use the configuration file *.ansible-lint.local* when running
+*ansible-lint*. Some rules might be disabled and some warnings might
+be ignored. See the notes in the configuration file.
+
+```bash
+shell> ansible-lint -c .ansible-lint.local
 ```
 
 
